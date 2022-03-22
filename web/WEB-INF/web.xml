@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>AcceuilleServ</servlet-name>
-        <servlet-class>mesServ.AcceuilleServ</servlet-class>
+        <servlet-name>ControllerProduit</servlet-name>
+        <servlet-class>controller.ControllerProduit</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NewServlet1</servlet-name>
+        <servlet-class>controller.NewServlet1</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>AcceuilleServ</servlet-name>
-        <url-pattern>/acceuille</url-pattern>
+        <servlet-name>ControllerProduit</servlet-name>
+        <url-pattern>/controllerProduit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewServlet1</servlet-name>
+        <url-pattern>/NewServlet1</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
