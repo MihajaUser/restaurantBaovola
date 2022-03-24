@@ -11,7 +11,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="assets/css/style.css" rel="stylesheet"> 
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet"> 
+
         <title>JSP Page</title>
     </head>
     <%
@@ -27,10 +28,10 @@
         <!--        <input id="rechercheId" onkeyup="recherche_nom()" type="text" name="rechercheNom" placeholder="nom Etudiant">-->
 
 
-        <table style="border-collapse: collapse">
+        <table class="table">
             <thead >
                 <tr  >
-                    <th class="nom">Nom Produit </th>
+                    <th scope="row">Nom Produit </th>
                     <th> Type</th>
                     <th> Prix normal</th>
                 </tr>
@@ -43,7 +44,6 @@
                     <td><% out.print(list[i].getNom()); %></td>
                     <td><% out.print(list[i].getType()); %></td>
                     <td><% out.print(list[i].getPrixNormal()); %> ariary</td>
-                    
 
 
                 </tr>

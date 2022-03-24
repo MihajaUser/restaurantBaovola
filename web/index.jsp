@@ -9,11 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet"> 
         <title>JSP Page</title>
     </head>
     <body>
-        <p> <a href="NewServlet1?type=entre">Liste des produits disponibles</a> </p>
-        <p> <a href="NewServlet1?type=dessert">Liste dessert</a> </p>
+        <h1>Bienvenue !</h1>
+        <p> <a href="NewServlet1?type=entre" class="btn btn-info">  Liste des produits disponibles</a> </p>
+        <p> <a href="NewServlet1?type=dessert" class="btn btn-info">  Liste dessert</a> </p>
 
 
     </body>
