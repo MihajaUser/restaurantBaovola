@@ -8,6 +8,18 @@
         <servlet-name>NewServlet1</servlet-name>
         <servlet-class>controller.NewServlet1</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletRecette</servlet-name>
+        <servlet-class>controller.ServletRecette</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletViewRecette</servlet-name>
+        <servlet-class>controller.ServletViewRecette</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Servlet_Estimation</servlet-name>
+        <servlet-class>controller.Servlet_Estimation</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControllerProduit</servlet-name>
         <url-pattern>/controllerProduit</url-pattern>
@@ -15,6 +27,18 @@
     <servlet-mapping>
         <servlet-name>NewServlet1</servlet-name>
         <url-pattern>/NewServlet1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletRecette</servlet-name>
+        <url-pattern>/servletRecette</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletViewRecette</servlet-name>
+        <url-pattern>/servletViewRecette</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Servlet_Estimation</servlet-name>
+        <url-pattern>/Servlet_Estimation</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
