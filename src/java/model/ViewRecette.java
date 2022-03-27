@@ -16,15 +16,15 @@ import java.util.Vector;
  */
 public class ViewRecette {
     private int idRecette;
-    private float quantite;
+    private double quantite;
     private int idProduit;
     private String nom;
     private String type;
-    private float prixNormal;    
-    private float prixLongue;
+    private double prixNormal;    
+    private double prixLongue;
     private int idComposants;
     private String nomComposants;
-    private float prixUnitaire;
+    private double prixUnitaire;
 
     public int getIdRecette() {
         return idRecette;
@@ -34,11 +34,11 @@ public class ViewRecette {
         this.idRecette = idRecette;
     }
 
-    public float getQuantite() {
+    public double getQuantite() {
         return quantite;
     }
 
-    public void setQuantite(float quantite) {
+    public void setQuantite(double quantite) {
         this.quantite = quantite;
     }
 
@@ -58,19 +58,19 @@ public class ViewRecette {
         this.type = type;
     }
 
-    public float getPrixNormal() {
+    public double getPrixNormal() {
         return prixNormal;
     }
 
-    public void setPrixNormal(float prixNormal) {
+    public void setPrixNormal(double prixNormal) {
         this.prixNormal = prixNormal;
     }
 
-    public float getPrixLongue() {
+    public double getPrixLongue() {
         return prixLongue;
     }
 
-    public void setPrixLongue(float prixLongue) {
+    public void setPrixLongue(double prixLongue) {
         this.prixLongue = prixLongue;
     }
 
@@ -90,15 +90,15 @@ public class ViewRecette {
         this.nomComposants = nomComposants;
     }
 
-    public float getPrixUnitaire() {
+    public double getPrixUnitaire() {
         return prixUnitaire;
     }
 
-    public void setPrixUnitaire(float prixUnitaire) {
+    public void setPrixUnitaire(double prixUnitaire) {
         this.prixUnitaire = prixUnitaire;
     }
 
-    public ViewRecette(int idRecette, float quantite, int idProduit, String nom, String type, float prixNormal, float prixLongue, int idComposants, String nomComposants, float prixUnitaire) {
+    public ViewRecette(int idRecette, double quantite, int idProduit, String nom, String type, double prixNormal, double prixLongue, int idComposants, String nomComposants, double prixUnitaire) {
         this.idRecette = idRecette;
         this.quantite = quantite;
         this.idProduit = idProduit;
@@ -135,16 +135,16 @@ public class ViewRecette {
         while (result.next()) {
             
             int idRecette = result.getInt(1);
-            float quantite = result.getFloat(2);
+            double quantite = result.getFloat(2);
             int idProduit = result.getInt(3);
 
             String nom = result.getString(4);
             String type =result.getString(5);
-            float prixNormal = result.getFloat(6);
-            float prixLongue =  result.getFloat(7);
+            double prixNormal = result.getFloat(6);
+            double prixLongue =  result.getFloat(7);
             int idComposant = result.getInt(8);
             String nomComposants =result.getString(9);
-            float prixUnitaire = result.getFloat(10);
+            double prixUnitaire = result.getFloat(10);
             temp = new ViewRecette(idRecette, quantite, idProduit,nom,type, prixNormal, prixLongue,idComposant,nomComposants,prixUnitaire);
             v.addElement(temp);
         }
@@ -156,10 +156,10 @@ public class ViewRecette {
         return lesClient;
     }
 
-    public float totaleReviens(int idProduit) throws Exception{
+    public double totaleReviens(int idProduit) throws Exception{
         
         ViewRecette[] view = this.getViewRecette();
-        float retour = 0;
+        double retour = 0;
         
         for(int i=0 ; i <view.length ; i++){
             if(view[i].idProduit == idProduit){
@@ -202,8 +202,8 @@ public class ViewRecette {
         return lesClient;
     }
      
-     public float estimation(float prixMin , float prixMax, float prixReviens){
-         float retour = 0;
+     public double estimation(double prixMin , double prixMax, double prixReviens){
+         double retour = 0;
          if(prixMin < prixReviens){
              retour  = prixReviens + ((prixReviens * 200)/100);
          }

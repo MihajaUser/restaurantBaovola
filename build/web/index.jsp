@@ -18,7 +18,7 @@
         <p> <a href="NewServlet1?type=dessert" class="btn btn-info">  Liste dessert</a> </p>        
         <p> <a href="servletViewRecette" class="btn btn-info">  Liste prix de reviens</a> </p>
         <h3>Estimation</h3>
-        <form method="post" action="servletViewRecette">
+        <form method="post" action="Servlet_Estimation">
             <input type="text" name="prixMin" />
             <input type="text" name="prixMax" />
             <input type="submit" value="entrer" />

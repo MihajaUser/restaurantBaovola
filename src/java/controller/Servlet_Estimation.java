@@ -7,12 +7,14 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Produit;
+import model.ViewRecette;
 
 /**
  *
@@ -24,7 +26,18 @@ public class Servlet_Estimation extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
-           RequestDispatcher rd = request.getRequestDispatcher("prix_plat.jsp");
+            double prixMin = Double.parseDouble(request.getParameter("prixMin"));
+            double prixMax = Double.parseDouble(request.getParameter("prixMax"));
+            
+            ViewRecette recette = new ViewRecette();
+            ViewRecette[] getRecette = recette.getGroup();
+            
+            HashMap data = new HashMap();
+            data.put("min", prixMin);
+            data.put("max", prixMax);
+            data.put("list", getRecette);
+            request.setAttribute("data",data );
+            RequestDispatcher rd = request.getRequestDispatcher("prix_plat.jsp");
             rd.forward(request, response);
         } catch (Exception ex) {
             ex.printStackTrace();
