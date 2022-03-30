@@ -4,6 +4,7 @@
     Author     : Rjr
 --%>
 
+<%@page import="java.util.HashMap"%>
 <%@page import="model.ViewRecette"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -34,6 +35,11 @@
         
         float revient = v.totaleRevient(idProduit);
         float estimation = v.estimation(prixMin, prixMax, v.totaleRevient(idProduit));
+        HashMap data = (HashMap) request.getAttribute("data");
+        double min = (double) data.get("min");
+        double max = (double) data.get("max");
+
+        ViewRecette[] list = (ViewRecette[]) data.get("list");
     %>
     <body>
         <div class="container">
@@ -53,4 +59,23 @@
             </div>
         </div>         
     </body>
+</html>
+        <h1>Prix estimation plat</h1>
+
+        <%      for(int i=0; i<list.length; i++){          %>
+
+        <%out.println(list[i].estimation(min, max, list[i].totaleReviens(list[i].getIdProduit()))); %>
+
+
+
+
+    </tr>
+
+    <%
+        }
+    %>
+
+
+
+</body>
 </html>
