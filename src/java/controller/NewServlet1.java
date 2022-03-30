@@ -26,6 +26,7 @@ public class NewServlet1 extends HttpServlet {
             throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
             Produit produit = new Produit();
+            
             String type =  request.getParameter("type");
             out.print(type);
             Produit[] getProduit = produit.getProduit(type);

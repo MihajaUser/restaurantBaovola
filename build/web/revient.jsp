@@ -19,43 +19,35 @@
     <%
         ViewRecette v = new ViewRecette();
         ViewRecette[] list = (ViewRecette[]) request.getAttribute("list");
-        
     %>
-
-
     <body>
-        <h1> Listes des produits disponibles</h1>
-
-        <!--        <input id="rechercheId" onkeyup="recherche_nom()" type="text" name="rechercheNom" placeholder="nom Etudiant">-->
-
-
-        <table class="table">
-            <thead >
-                <tr  >
-                    <th scope="row">Nom Produit </th>                  
-                    <th> Totale reviens</th>
-
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <%                    for (int i = 0; i < list.length; i++) {
-                %>
-
-                <tr>
-                    <td><% out.print(list[i].getNom()); %></td>
-                    <td><% out.print(v.totaleReviens(list[i].getIdProduit())); %></td>
-                    
-                    
-
-
-                </tr>
-
-                <%
-                    }
-                %>
-            </tbody>
-        </table>
-
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8"><br><br>
+                    <h1> Listes des produits disponibles</h1><br>
+                    <!--<input id="rechercheId" onkeyup="recherche_nom()" type="text" name="rechercheNom" placeholder="nom Etudiant">-->
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col"> Nom Produit </th>                  
+                                <th scope="col"> Totale prix de revient </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for (int i = 0; i < list.length; i++) { %>
+                            <tr>
+                                <td><% out.print(list[i].getNom()); %></td>
+                                <td><% out.print(v.totaleRevient(list[i].getIdProduit())); %> Ariary</td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                    <br>
+                    <a href="index.jsp">Retour</a>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
     </body>
 </html>

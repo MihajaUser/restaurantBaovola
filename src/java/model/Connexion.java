@@ -17,7 +17,7 @@ public class Connexion {
 
     public Connexion() throws Exception {
         Class.forName("org.postgresql.Driver");
-        this.Connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/resto", "test", "test");
+        this.Connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Restaurant", "postgres", "niko");
     }
 
     public Connexion(String database, String user, String mdp) throws Exception {

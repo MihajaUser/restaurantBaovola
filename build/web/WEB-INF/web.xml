@@ -17,8 +17,36 @@
         <servlet-class>controller.ServletViewRecette</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Servlet_Estimation</servlet-name>
-        <servlet-class>controller.Servlet_Estimation</servlet-class>
+        <servlet-name>insertProduit</servlet-name>
+        <servlet-class>controller.insertProduit</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Estimation</servlet-name>
+        <servlet-class>controller.Estimation</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>insertCommandeNV</servlet-name>
+        <servlet-class>controller.insertCommandeNV</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>suppressionCommandePorter</servlet-name>
+        <servlet-class>controller.suppressionCommandePorter</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletInsertCommande</servlet-name>
+        <servlet-class>controller.ServletInsertCommande</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>annulationCommandeNV</servlet-name>
+        <servlet-class>controller.annulationCommandeNV</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>insertCommandeValider</servlet-name>
+        <servlet-class>controller.insertCommandeValider</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletServeurs</servlet-name>
+        <servlet-class>controller.ServletServeurs</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ControllerProduit</servlet-name>
@@ -37,8 +65,36 @@
         <url-pattern>/servletViewRecette</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Servlet_Estimation</servlet-name>
-        <url-pattern>/Servlet_Estimation</url-pattern>
+        <servlet-name>insertProduit</servlet-name>
+        <url-pattern>/insertProduit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Estimation</servlet-name>
+        <url-pattern>/Estimation</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>insertCommandeNV</servlet-name>
+        <url-pattern>/insertCommandeNV</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>suppressionCommandePorter</servlet-name>
+        <url-pattern>/suppressionCommandePorter</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletInsertCommande</servlet-name>
+        <url-pattern>/ServletInsertCommande</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>annulationCommandeNV</servlet-name>
+        <url-pattern>/annulationCommandeNV</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>insertCommandeValider</servlet-name>
+        <url-pattern>/insertCommandeValider</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletServeurs</servlet-name>
+        <url-pattern>/servletServeurs</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

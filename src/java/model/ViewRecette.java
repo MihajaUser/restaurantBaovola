@@ -1,3 +1,35 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -117,7 +149,13 @@ public class ViewRecette {
         this.nom = nom;
     }
     
- 
+    public int getIdProduit() {
+        return idProduit;
+    }
+
+    public void setIdProduit(int idProduit) {
+        this.idProduit = idProduit;
+    }
 
     public ViewRecette() {
     }
@@ -131,7 +169,7 @@ public class ViewRecette {
         ResultSet result = s.executeQuery(request);
         Vector<ViewRecette> v = new Vector();
         ViewRecette temp = new ViewRecette();
-        ;
+        
         while (result.next()) {
             
             int idRecette = result.getInt(1);
@@ -156,27 +194,6 @@ public class ViewRecette {
         return lesClient;
     }
 
-    public float totaleReviens(int idProduit) throws Exception{
-        
-        ViewRecette[] view = this.getViewRecette();
-        float retour = 0;
-        
-        for(int i=0 ; i <view.length ; i++){
-            if(view[i].idProduit == idProduit){
-                retour += view[i].prixUnitaire;
-            }
-        }
-        return retour;
-    }
-
-    public int getIdProduit() {
-        return idProduit;
-    }
-
-    public void setIdProduit(int idProduit) {
-        this.idProduit = idProduit;
-    }
-
      public ViewRecette[] getGroup() throws Exception {
         Connexion con = new Connexion();
         Connection connex = con.getConnect();
@@ -186,7 +203,7 @@ public class ViewRecette {
         ResultSet result = s.executeQuery(request);
         Vector<ViewRecette> v = new Vector();
         ViewRecette temp = new ViewRecette();
-        ;
+        
         while (result.next()) {
             int id = result.getInt(1);
             String nom = result.getString(2);
@@ -201,19 +218,41 @@ public class ViewRecette {
         }
         return lesClient;
     }
-     
-     public float estimation(float prixMin , float prixMax, float prixReviens){
-         float retour = 0;
-         if(prixMin < prixReviens){
-             retour  = prixReviens + ((prixReviens * 200)/100);
-         }
-         if(prixMin <= prixReviens && prixReviens< prixMax){
-             retour  = prixReviens + ((prixReviens * 100)/100);
-         }
-         if(prixMax <= prixReviens){
-             retour  = prixReviens + ((prixReviens * 50)/100);
-         }
-         return retour;
-     }
     
+    public float totaleRevient(int idProduit) throws Exception{
+        
+        ViewRecette[] view = this.getViewRecette();
+        float retour = 0;
+        
+        for(int i=0 ; i <view.length ; i++){
+            if(view[i].idProduit == idProduit){
+                retour += view[i].prixUnitaire;
+            }
+        }
+        return retour;
+    }
+    
+    public float estimation(float prixMin , float prixMax, float prixReviens){
+        float retour = 0;
+        if(prixMin < prixReviens){
+            retour  = prixReviens + ((prixReviens * 200)/100);
+        }
+        if(prixMin <= prixReviens && prixReviens < prixMax){
+            retour  = prixReviens + ((prixReviens * 100)/100);
+        }
+        if(prixMax <= prixReviens){
+            retour  = prixReviens + ((prixReviens * 50)/100);
+        }
+        return retour;
+    }
+     
+    public static void main(String[]args){
+        float prixRevient = 11200;
+        float prixMin = 1000;
+        float prixMax = 10000;
+        float retour = 0;
+        ViewRecette view = new ViewRecette();
+        retour = view.estimation(prixMin, prixMax, prixRevient);
+        System.out.println("Estimation prix de vente : "+retour);
+    }
 }
